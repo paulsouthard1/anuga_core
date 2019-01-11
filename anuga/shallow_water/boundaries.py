@@ -704,7 +704,7 @@ class Inflow_boundary(Boundary):
     # FIXME (Ole): This is work in progress and definitely not finished.
     # The associated test has been disabled
 
-    def __init__(self, domain=None, rate=0.0):
+    def __init__(self, domain=None, rate=0.0, slope=0.0):
         Boundary.__init__(self)
 
         if domain is None:
@@ -716,6 +716,7 @@ class Inflow_boundary(Boundary):
         
         # FIXME(Ole): Allow rate to be time dependent as well
         self.rate = rate
+        self.slope = slope
         self.tag = None # Placeholder for tag associated with this object.
 
     def __repr__(self):
@@ -755,7 +756,7 @@ class Inflow_boundary(Boundary):
         # from which we can isolate depth to get
         #             h = (mu n/sqrt(S) )^{3/5} 
         
-        slope = 0 # get gradient for this triangle dot normal
+        slope = self.slope
         epsilon = 1.0e-12
         import math
         
