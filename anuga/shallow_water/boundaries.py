@@ -769,7 +769,7 @@ class Inflow_boundary(Boundary):
             depth = pow(self.average_momentum * mannings_n/math.sqrt(slope), \
                         3.0/5) 
         else:
-            depth = 1.0
+            depth = 0
             
         # Elevation on this edge    
         
